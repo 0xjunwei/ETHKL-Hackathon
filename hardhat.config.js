@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("hardhat-deploy");
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
@@ -15,7 +16,7 @@ module.exports = {
       chainId: 167005,
     },
   },
-  solidity: "0.8.9",
+  solidity: "0.8.21",
   etherscan: {
     apiKey: {
       taiko: "42069",
