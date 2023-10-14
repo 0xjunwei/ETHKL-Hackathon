@@ -31,13 +31,9 @@ describe("Notary", async function () {
   describe("addProof as NOT notarizer", async function () {
     it("Fails if you are not a notarizer", async function () {
       notNotarizer = (await ethers.getSigners())[1];
-      const padToBytes32 = (n) => n + "0".repeat(64 - n.length);
-      const paddedValue1 = "0x" + padToBytes32("123");
-      const paddedValue2 = "0x" + padToBytes32("456");
-
       // use expect for reverted txn
       await expect(
-        proofer.connect(notNotarizer).addProof(paddedValue1, paddedValue2)
+        proofer.connect(notNotarizer).addProof("fakeHash", "fakeIPFS")
       ).to.be.revertedWith("Not authorized notarizer");
     });
   });
@@ -61,13 +57,9 @@ describe("Notary", async function () {
   describe("addProof as notarizer", async function () {
     it("Succeed as notarizer", async function () {
       notNotarizer = (await ethers.getSigners())[1];
-      const padToBytes32 = (n) => n + "0".repeat(64 - n.length);
-      const paddedValue1 = "0x" + padToBytes32("123");
-      const paddedValue2 = "0x" + padToBytes32("456");
-
       // use expect for reverted txn
       await expect(
-        proofer.connect(notNotarizer).addProof(paddedValue1, paddedValue2)
+        proofer.connect(notNotarizer).addProof("fakeHash", "fakeIPFS")
       );
     });
   });
@@ -95,13 +87,9 @@ describe("Notary", async function () {
   describe("addProof as NOT NOTARIZER", async function () {
     it("Fails if you are not a notarizer after removing as notarizer", async function () {
       notNotarizer = (await ethers.getSigners())[1];
-      const padToBytes32 = (n) => n + "0".repeat(64 - n.length);
-      const paddedValue1 = "0x" + padToBytes32("123");
-      const paddedValue2 = "0x" + padToBytes32("456");
-
       // use expect for reverted txn
       await expect(
-        proofer.connect(notNotarizer).addProof(paddedValue1, paddedValue2)
+        proofer.connect(notNotarizer).addProof("fakeHash", "FakeIPFS")
       ).to.be.revertedWith("Not authorized notarizer");
     });
   });

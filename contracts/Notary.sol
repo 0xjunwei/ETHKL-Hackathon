@@ -6,19 +6,19 @@ contract Notary {
         // Timestamp proof was added to the blockchain
         uint256 timestamp;
         // Bytes of Proof Committing into the smart contract
-        bytes32 hash;
+        string hash;
     }
 
     address public immutable i_owner;
     mapping(address => bool) public notarizers;
-    mapping(bytes32 => Proof) public proofs; // document identifier to Proof
+    mapping(string => Proof) public proofs; // document identifier to Proof
 
     // Saving gas so only showing status change true/false
     event NotarizerStatusChanged(address indexed _notarizer, bool status);
     // Emit event when a new proof is added
     event ProofAdded(
-        bytes32 indexed _docHash,
-        bytes32 _tslHash,
+        string indexed _docHash,
+        string _tslHash,
         uint256 timestamp
     );
 
@@ -52,7 +52,10 @@ contract Notary {
     // adds proof as a notarizer
     // @param _docHash hash of document
     // @param _tslHash the TLSnotary hash of document with timestamp this was placed
-    function addProof(bytes32 _docHash, bytes32 _tslHash) public onlyNotarizer {
+    function addProof(
+        string memory _docHash,
+        string memory _tslHash
+    ) public onlyNotarizer {
         require(proofs[_docHash].timestamp == 0, "Proof already exists!");
         proofs[_docHash] = Proof(block.timestamp, _tslHash);
         emit ProofAdded(_docHash, _tslHash, block.timestamp);
@@ -62,10 +65,12 @@ contract Notary {
     // @param _docHash hash of the document
     // @param _tslHash the TLSnotary hash of document to check if it matches the stored proof
     function verifyProof(
-        bytes32 _docHash,
-        bytes32 _tslHash
+        string calldata _docHash,
+        string calldata _tslHash
     ) public view returns (bool) {
-        return proofs[_docHash].hash == _tslHash;
+        bytes32 b_docHash = keccak256(abi.encodePacked(proofs[_docHash].hash));
+        bytes32 b_tslHash = keccak256(abi.encodePacked(_tslHash));
+        return b_docHash == b_tslHash;
     }
 
     // Get owner of contract
