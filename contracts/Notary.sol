@@ -5,8 +5,8 @@ contract Notary {
     struct Proof {
         // Timestamp proof was added to the blockchain
         uint256 timestamp;
-        // Bytes of Proof Committing into the smart contract
-        string hash;
+        // IPFS of Proof Committing into the smart contract
+        string ipfs_link;
     }
 
     address public immutable i_owner;
@@ -17,8 +17,8 @@ contract Notary {
     event NotarizerStatusChanged(address indexed _notarizer, bool status);
     // Emit event when a new proof is added
     event ProofAdded(
-        string indexed _docHash,
-        string _tslHash,
+        string indexed _documentURL,
+        string _ipfsLinkOfProof,
         uint256 timestamp
     );
 
@@ -50,27 +50,24 @@ contract Notary {
     }
 
     // adds proof as a notarizer
-    // @param _docHash hash of document
-    // @param _tslHash the TLSnotary hash of document with timestamp this was placed
+    // @param _documentURL URL of the domain
+    // @param _ipfsLinkOfProof IPFS Link to the proof.json file
     function addProof(
-        string memory _docHash,
-        string memory _tslHash
+        string memory _documentURL,
+        string memory _ipfsLinkOfProof
     ) public onlyNotarizer {
-        require(proofs[_docHash].timestamp == 0, "Proof already exists!");
-        proofs[_docHash] = Proof(block.timestamp, _tslHash);
-        emit ProofAdded(_docHash, _tslHash, block.timestamp);
+        require(proofs[_documentURL].timestamp == 0, "Proof already exists!");
+        proofs[_documentURL] = Proof(block.timestamp, _ipfsLinkOfProof);
+        emit ProofAdded(_documentURL, _ipfsLinkOfProof, block.timestamp);
     }
 
     // Validates a proof if it exists
-    // @param _docHash hash of the document
-    // @param _tslHash the TLSnotary hash of document to check if it matches the stored proof
+    // @param _documentURL URL of the domain
+    // Function to retrieve the IPFS link by document URL
     function verifyProof(
-        string calldata _docHash,
-        string calldata _tslHash
-    ) public view returns (bool) {
-        bytes32 b_docHash = keccak256(abi.encodePacked(proofs[_docHash].hash));
-        bytes32 b_tslHash = keccak256(abi.encodePacked(_tslHash));
-        return b_docHash == b_tslHash;
+        string memory _documentURL
+    ) public view returns (string memory) {
+        return proofs[_documentURL].ipfs_link;
     }
 
     // Get owner of contract

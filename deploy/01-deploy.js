@@ -59,10 +59,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
       checkNotaryStatus
   );
   // Adding proofs
-  // Read the proof.json file
-  const proofData = fs.readFileSync("./proof.json", "utf-8");
-  // Calculate the hash of the JSON data using crypto-js
-  const proofHash = crypto.SHA256(proofData).toString();
+  const proofDomain = "www.google.com";
   // File too big going to try IPFS
   const ipfs_fake_link_for_demo =
     "ipfs://QmXyZaBcDeFgHiJkLmNoPqRsTuVwXyZaBcDeFgHiJkLmNoPqRsTuVwXyZaBcDeFgHiJkLmNoPqRsTuVw";
@@ -70,7 +67,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   try {
     const tx = await contractInstance
       .connect(notarizer_account)
-      .addProof(proofHash, ipfs_fake_link_for_demo);
+      .addProof(proofDomain, ipfs_fake_link_for_demo);
     await tx.wait();
     console.log("Proof added successfully.");
   } catch (error) {
