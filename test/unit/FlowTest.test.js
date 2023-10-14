@@ -5,25 +5,26 @@ describe("Notary", async function () {
   let proofer;
   let deployer;
   let notNotarizer;
-  // get another account
+  let deployerAddress;
 
   beforeEach(async function () {
     // deploy Proofers
     // using hardhat-deploy
     // get accounts from ethers
     console.log("Testing deploy of notary script");
-    const accounts = await ethers.getSigners();
-    deployer = accounts[0];
+    //const accounts = await ethers.getSigners();
+    //deployer = accounts[0];
+    deployer = await getNamedAccounts();
+    deployerAddress = deployer.deployer;
     await deployments.fixture(["all"]);
     proofer = await ethers.deployContract("Notary", [], {});
   });
 
   describe("constructor", function () {
     it("sets the owner addresses correctly", async () => {
-      console.log("Response: " + (await proofer.getOwner()));
       const response = await proofer.getOwner();
-
-      assert.equal(response, await deployer.getAddress());
+      console.log("Response contract owner address: " + response);
+      assert.equal(response, deployerAddress);
     });
   });
   // now for addProof

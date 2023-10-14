@@ -1,0 +1,321 @@
+{
+  "address": "0xBE58028a48bad03cCAB575Be8A5e07dc5A444BFf",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_notarizer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "name": "NotarizerStatusChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "_docHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_tslHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProofAdded",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_notarizer",
+          "type": "address"
+        }
+      ],
+      "name": "addNotarizer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_docHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_tslHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "addProof",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_notary",
+          "type": "address"
+        }
+      ],
+      "name": "checkNotarizer",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "i_owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "notarizers",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "proofs",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_notarizer",
+          "type": "address"
+        }
+      ],
+      "name": "removeNotarizer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_docHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_tslHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "verifyProof",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x5d53828e8d0862e2bfcf778e6f8c09f20e63b3fe33d494e2a8a0aea44c5e5aa2",
+  "receipt": {
+    "to": null,
+    "from": "0x55d4A9140C86c026a9e0C19b756b58daE304953f",
+    "contractAddress": "0xBE58028a48bad03cCAB575Be8A5e07dc5A444BFf",
+    "transactionIndex": 5,
+    "gasUsed": "623109",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xdfcf248e1534428e13a6947dd577b3faa1c8bdae0e2bdab87b38f3d9d474df5a",
+    "transactionHash": "0x5d53828e8d0862e2bfcf778e6f8c09f20e63b3fe33d494e2a8a0aea44c5e5aa2",
+    "logs": [],
+    "blockNumber": 646323,
+    "cumulativeGasUsed": "1559034",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "cd785c2a199454a7eb159f9ef112c5bc",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_notarizer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"name\":\"NotarizerStatusChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"_docHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_tslHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"ProofAdded\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_notarizer\",\"type\":\"address\"}],\"name\":\"addNotarizer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_docHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"_tslHash\",\"type\":\"bytes32\"}],\"name\":\"addProof\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_notary\",\"type\":\"address\"}],\"name\":\"checkNotarizer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"i_owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"notarizers\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"proofs\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_notarizer\",\"type\":\"address\"}],\"name\":\"removeNotarizer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_docHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"_tslHash\",\"type\":\"bytes32\"}],\"name\":\"verifyProof\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Notary.sol\":\"Notary\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Notary.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.21;\\n\\ncontract Notary {\\n    struct Proof {\\n        // Timestamp proof was added to the blockchain\\n        uint256 timestamp;\\n        // Bytes of Proof Committing into the smart contract\\n        bytes32 hash;\\n    }\\n\\n    address public immutable i_owner;\\n    mapping(address => bool) public notarizers;\\n    mapping(bytes32 => Proof) public proofs; // document identifier to Proof\\n\\n    // Saving gas so only showing status change true/false\\n    event NotarizerStatusChanged(address indexed _notarizer, bool status);\\n    // Emit event when a new proof is added\\n    event ProofAdded(\\n        bytes32 indexed _docHash,\\n        bytes32 _tslHash,\\n        uint256 timestamp\\n    );\\n\\n    constructor() {\\n        i_owner = msg.sender;\\n    }\\n\\n    // Typical onlyOwner function to ensure only owner can call\\n    modifier onlyOwner() {\\n        require(msg.sender == i_owner, \\\"Not contract owner\\\");\\n        _;\\n    }\\n    // Only notarizers can add proofs to the contract, having an array can have multiple people within an organization to add instead of a single wallet\\n    modifier onlyNotarizer() {\\n        require(notarizers[msg.sender], \\\"Not authorized notarizer\\\");\\n        _;\\n    }\\n\\n    // Allows the owner to add a notarizer\\n    function addNotarizer(address _notarizer) public onlyOwner {\\n        notarizers[_notarizer] = true;\\n        emit NotarizerStatusChanged(_notarizer, true);\\n    }\\n\\n    // removes notarizer function\\n    function removeNotarizer(address _notarizer) public onlyOwner {\\n        notarizers[_notarizer] = false;\\n        emit NotarizerStatusChanged(_notarizer, false);\\n    }\\n\\n    // adds proof as a notarizer\\n    // @param _docHash hash of document\\n    // @param _tslHash the TLSnotary hash of document with timestamp this was placed\\n    function addProof(bytes32 _docHash, bytes32 _tslHash) public onlyNotarizer {\\n        require(proofs[_docHash].timestamp == 0, \\\"Proof already exists!\\\");\\n        proofs[_docHash] = Proof(block.timestamp, _tslHash);\\n        emit ProofAdded(_docHash, _tslHash, block.timestamp);\\n    }\\n\\n    // Validates a proof if it exists\\n    // @param _docHash hash of the document\\n    // @param _tslHash the TLSnotary hash of document to check if it matches the stored proof\\n    function verifyProof(\\n        bytes32 _docHash,\\n        bytes32 _tslHash\\n    ) public view returns (bool) {\\n        return proofs[_docHash].hash == _tslHash;\\n    }\\n\\n    // Get owner of contract\\n    function getOwner() public view returns (address) {\\n        return i_owner;\\n    }\\n\\n    // check if notarizer of contract\\n    function checkNotarizer(address _notary) public view returns (bool) {\\n        return notarizers[_notary];\\n    }\\n}\\n\",\"keccak256\":\"0xfdb14f2cfd05e3232202890f5072469602b5ce0150ff2e50cf476d314e3f251a\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a060405234801561001057600080fd5b503373ffffffffffffffffffffffffffffffffffffffff1660808173ffffffffffffffffffffffffffffffffffffffff1681525050608051610a58610075600039600081816104080152818161054101528181610567015261069e0152610a586000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c8063739808e511610066578063739808e514610145578063784486d914610175578063893d20e814610191578063bbeb7620146101af578063dba6335f146101cb57610093565b80631a7d888c146100985780631bcdb52d146100b4578063444d95b0146100e45780634fa09dc214610115575b600080fd5b6100b260048036038101906100ad91906106fb565b6101e9565b005b6100ce60048036038101906100c99190610799565b61034a565b6040516100db91906107e1565b60405180910390f35b6100fe60048036038101906100f991906107fc565b61039f565b60405161010c929190610851565b60405180910390f35b61012f600480360381019061012a9190610799565b6103c3565b60405161013c91906107e1565b60405180910390f35b61015f600480360381019061015a91906106fb565b6103e3565b60405161016c91906107e1565b60405180910390f35b61018f600480360381019061018a9190610799565b610406565b005b61019961053d565b6040516101a69190610889565b60405180910390f35b6101c960048036038101906101c49190610799565b610565565b005b6101d361069c565b6040516101e09190610889565b60405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16610274576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161026b90610901565b60405180910390fd5b60006001600084815260200190815260200160002060000154146102cd576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016102c49061096d565b60405180910390fd5b604051806040016040528042815260200182815250600160008481526020019081526020016000206000820151816000015560208201518160010155905050817f67c2b47fb980516d7a4f8f13eb1b622a78e7b89184d6761b9a0001628a47238c824260405161033e92919061098d565b60405180910390a25050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b60016020528060005260406000206000915090508060000154908060010154905082565b60006020528060005260406000206000915054906101000a900460ff1681565b600081600160008581526020019081526020016000206001015414905092915050565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610494576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161048b90610a02565b60405180910390fd5b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167fd1b562d905d8c1e9e424069cc9ce22e10ce0bfa240f6a5be1c2044834691b245600060405161053291906107e1565b60405180910390a250565b60007f0000000000000000000000000000000000000000000000000000000000000000905090565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146105f3576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016105ea90610a02565b60405180910390fd5b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167fd1b562d905d8c1e9e424069cc9ce22e10ce0bfa240f6a5be1c2044834691b245600160405161069191906107e1565b60405180910390a250565b7f000000000000000000000000000000000000000000000000000000000000000081565b600080fd5b6000819050919050565b6106d8816106c5565b81146106e357600080fd5b50565b6000813590506106f5816106cf565b92915050565b60008060408385031215610712576107116106c0565b5b6000610720858286016106e6565b9250506020610731858286016106e6565b9150509250929050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006107668261073b565b9050919050565b6107768161075b565b811461078157600080fd5b50565b6000813590506107938161076d565b92915050565b6000602082840312156107af576107ae6106c0565b5b60006107bd84828501610784565b91505092915050565b60008115159050919050565b6107db816107c6565b82525050565b60006020820190506107f660008301846107d2565b92915050565b600060208284031215610812576108116106c0565b5b6000610820848285016106e6565b91505092915050565b6000819050919050565b61083c81610829565b82525050565b61084b816106c5565b82525050565b60006040820190506108666000830185610833565b6108736020830184610842565b9392505050565b6108838161075b565b82525050565b600060208201905061089e600083018461087a565b92915050565b600082825260208201905092915050565b7f4e6f7420617574686f72697a6564206e6f746172697a65720000000000000000600082015250565b60006108eb6018836108a4565b91506108f6826108b5565b602082019050919050565b6000602082019050818103600083015261091a816108de565b9050919050565b7f50726f6f6620616c726561647920657869737473210000000000000000000000600082015250565b60006109576015836108a4565b915061096282610921565b602082019050919050565b600060208201905081810360008301526109868161094a565b9050919050565b60006040820190506109a26000830185610842565b6109af6020830184610833565b9392505050565b7f4e6f7420636f6e7472616374206f776e65720000000000000000000000000000600082015250565b60006109ec6012836108a4565b91506109f7826109b6565b602082019050919050565b60006020820190508181036000830152610a1b816109df565b905091905056fea26469706673582212204c345694c37a110e85d7de0ff51a5a44c681964dc6cf417d695a62663300f58f64736f6c63430008150033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100935760003560e01c8063739808e511610066578063739808e514610145578063784486d914610175578063893d20e814610191578063bbeb7620146101af578063dba6335f146101cb57610093565b80631a7d888c146100985780631bcdb52d146100b4578063444d95b0146100e45780634fa09dc214610115575b600080fd5b6100b260048036038101906100ad91906106fb565b6101e9565b005b6100ce60048036038101906100c99190610799565b61034a565b6040516100db91906107e1565b60405180910390f35b6100fe60048036038101906100f991906107fc565b61039f565b60405161010c929190610851565b60405180910390f35b61012f600480360381019061012a9190610799565b6103c3565b60405161013c91906107e1565b60405180910390f35b61015f600480360381019061015a91906106fb565b6103e3565b60405161016c91906107e1565b60405180910390f35b61018f600480360381019061018a9190610799565b610406565b005b61019961053d565b6040516101a69190610889565b60405180910390f35b6101c960048036038101906101c49190610799565b610565565b005b6101d361069c565b6040516101e09190610889565b60405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16610274576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161026b90610901565b60405180910390fd5b60006001600084815260200190815260200160002060000154146102cd576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016102c49061096d565b60405180910390fd5b604051806040016040528042815260200182815250600160008481526020019081526020016000206000820151816000015560208201518160010155905050817f67c2b47fb980516d7a4f8f13eb1b622a78e7b89184d6761b9a0001628a47238c824260405161033e92919061098d565b60405180910390a25050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b60016020528060005260406000206000915090508060000154908060010154905082565b60006020528060005260406000206000915054906101000a900460ff1681565b600081600160008581526020019081526020016000206001015414905092915050565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610494576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161048b90610a02565b60405180910390fd5b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167fd1b562d905d8c1e9e424069cc9ce22e10ce0bfa240f6a5be1c2044834691b245600060405161053291906107e1565b60405180910390a250565b60007f0000000000000000000000000000000000000000000000000000000000000000905090565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146105f3576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016105ea90610a02565b60405180910390fd5b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167fd1b562d905d8c1e9e424069cc9ce22e10ce0bfa240f6a5be1c2044834691b245600160405161069191906107e1565b60405180910390a250565b7f000000000000000000000000000000000000000000000000000000000000000081565b600080fd5b6000819050919050565b6106d8816106c5565b81146106e357600080fd5b50565b6000813590506106f5816106cf565b92915050565b60008060408385031215610712576107116106c0565b5b6000610720858286016106e6565b9250506020610731858286016106e6565b9150509250929050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006107668261073b565b9050919050565b6107768161075b565b811461078157600080fd5b50565b6000813590506107938161076d565b92915050565b6000602082840312156107af576107ae6106c0565b5b60006107bd84828501610784565b91505092915050565b60008115159050919050565b6107db816107c6565b82525050565b60006020820190506107f660008301846107d2565b92915050565b600060208284031215610812576108116106c0565b5b6000610820848285016106e6565b91505092915050565b6000819050919050565b61083c81610829565b82525050565b61084b816106c5565b82525050565b60006040820190506108666000830185610833565b6108736020830184610842565b9392505050565b6108838161075b565b82525050565b600060208201905061089e600083018461087a565b92915050565b600082825260208201905092915050565b7f4e6f7420617574686f72697a6564206e6f746172697a65720000000000000000600082015250565b60006108eb6018836108a4565b91506108f6826108b5565b602082019050919050565b6000602082019050818103600083015261091a816108de565b9050919050565b7f50726f6f6620616c726561647920657869737473210000000000000000000000600082015250565b60006109576015836108a4565b915061096282610921565b602082019050919050565b600060208201905081810360008301526109868161094a565b9050919050565b60006040820190506109a26000830185610842565b6109af6020830184610833565b9392505050565b7f4e6f7420636f6e7472616374206f776e65720000000000000000000000000000600082015250565b60006109ec6012836108a4565b91506109f7826109b6565b602082019050919050565b60006020820190508181036000830152610a1b816109df565b905091905056fea26469706673582212204c345694c37a110e85d7de0ff51a5a44c681964dc6cf417d695a62663300f58f64736f6c63430008150033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 12,
+        "contract": "contracts/Notary.sol:Notary",
+        "label": "notarizers",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 17,
+        "contract": "contracts/Notary.sol:Notary",
+        "label": "proofs",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_bytes32,t_struct(Proof)6_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_bytes32,t_struct(Proof)6_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct Notary.Proof)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Proof)6_storage"
+      },
+      "t_struct(Proof)6_storage": {
+        "encoding": "inplace",
+        "label": "struct Notary.Proof",
+        "members": [
+          {
+            "astId": 3,
+            "contract": "contracts/Notary.sol:Notary",
+            "label": "timestamp",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 5,
+            "contract": "contracts/Notary.sol:Notary",
+            "label": "hash",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_bytes32"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

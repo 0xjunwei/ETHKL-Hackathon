@@ -15,7 +15,6 @@ module.exports = {
       url: "https://rpc.jolnir.taiko.xyz",
       accounts: [PRIVATE_KEY, NON_NOTARY],
       gasPrice: "auto",
-      chainId: 167005,
       blockConfirmations: 5,
     },
   },
