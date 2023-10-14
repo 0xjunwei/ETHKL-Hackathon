@@ -21,7 +21,9 @@ use tracing::debug;
 use notary_server::{ClientType, NotarizationSessionRequest, NotarizationSessionResponse};
 use tlsn_prover::{Prover, ProverConfig};
 
+
 const SERVER_DOMAIN: &str = "0xjunwei.github.io";
+const URI_PATH: &str = "/ethkl/results.html";
 const USER_AGENT: &str = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36";
 
 const NOTARY_HOST: &str = "127.0.0.1";
@@ -82,7 +84,7 @@ async fn main() {
 
     // Build a simple HTTP request with common headers
     let request = Request::builder()
-        .uri("/ethkl/results.html")
+        .uri(URI_PATH)
         .header("Host", SERVER_DOMAIN)
         .header("Accept", "*/*")
         // Using "identity" instructs the Server not to use compression for its HTTP response.
