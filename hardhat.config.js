@@ -39,6 +39,7 @@ module.exports = {
     currency: "USD",
     outputFile: "gas-report.txt",
     noColors: true,
+    token: "ETH",
   },
   namedAccounts: {
     deployer: {
