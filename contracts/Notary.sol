@@ -67,4 +67,14 @@ contract Notary {
     ) public view returns (bool) {
         return proofs[_docHash].hash == _tslHash;
     }
+
+    // Get owner of contract
+    function getOwner() public view returns (address) {
+        return i_owner;
+    }
+
+    // check if notarizer of contract
+    function checkNotarizer(address _notary) public view returns (bool) {
+        return notarizers[_notary];
+    }
 }

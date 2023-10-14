@@ -13,26 +13,94 @@ describe("Notary", async function () {
     // get accounts from ethers
     console.log("Testing deploy of notary script");
     const accounts = await ethers.getSigners();
-    const deployer = accounts[0];
-    //deployer = (await getNamedAccounts()).deployer;
+    deployer = accounts[0];
     await deployments.fixture(["all"]);
-    proofer = await ethers.getContractAt("Notary", deployer);
+    proofer = await ethers.deployContract("Notary", [], {});
   });
+
   describe("constructor", function () {
     it("sets the owner addresses correctly", async () => {
-      console.log("Response: " + (await proofer.i_owner()));
-      const response = await proofer.i_owner();
+      console.log("Response: " + (await proofer.getOwner()));
+      const response = await proofer.getOwner();
 
       assert.equal(response, await deployer.getAddress());
     });
   });
   // now for addProof
-  describe("addProof", async function () {
-    notNotarizer = (await ethers.getSigners())[1];
+  describe("addProof as NOT notarizer", async function () {
     it("Fails if you are not a notarizer", async function () {
+      notNotarizer = (await ethers.getSigners())[1];
+      const padToBytes32 = (n) => n + "0".repeat(64 - n.length);
+      const paddedValue1 = "0x" + padToBytes32("123");
+      const paddedValue2 = "0x" + padToBytes32("456");
+
       // use expect for reverted txn
       await expect(
-        proofer.connect(notNotarizer).addProof("0x123", "0x456")
+        proofer.connect(notNotarizer).addProof(paddedValue1, paddedValue2)
+      ).to.be.revertedWith("Not authorized notarizer");
+    });
+  });
+  // Now adding address to notarizer and testing again
+  describe("addNotarizer", async function () {
+    it("Should be set to true as notarizer", async function () {
+      // using deployer to add the notNotarizer to be one
+      const receipt = await proofer.addNotarizer(
+        await notNotarizer.getAddress()
+      );
+      await receipt.wait();
+      const response = await proofer.checkNotarizer(
+        await notNotarizer.getAddress()
+      );
+
+      assert.equal(response, true, "The address should be set as a notarizer");
+    });
+  });
+  // Positive flow as notarizer tries to add a proof should succeed now
+  // now for addProof
+  describe("addProof as notarizer", async function () {
+    it("Succeed as notarizer", async function () {
+      notNotarizer = (await ethers.getSigners())[1];
+      const padToBytes32 = (n) => n + "0".repeat(64 - n.length);
+      const paddedValue1 = "0x" + padToBytes32("123");
+      const paddedValue2 = "0x" + padToBytes32("456");
+
+      // use expect for reverted txn
+      await expect(
+        proofer.connect(notNotarizer).addProof(paddedValue1, paddedValue2)
+      );
+    });
+  });
+  // Now to remove notarizer
+  // Now adding address to notarizer and testing again
+  describe("removeNotarizer", async function () {
+    it("Should be set to false for notarizer", async function () {
+      // using deployer to add the notNotarizer to be one
+      const receipt = await proofer.removeNotarizer(
+        await notNotarizer.getAddress()
+      );
+      await receipt.wait();
+      const response = await proofer.checkNotarizer(
+        await notNotarizer.getAddress()
+      );
+
+      assert.equal(
+        response,
+        false,
+        "The address should be removed as a notarizer"
+      );
+    });
+  });
+  // Address should no longer be able to add proofs
+  describe("addProof as NOT NOTARIZER", async function () {
+    it("Fails if you are not a notarizer after removing as notarizer", async function () {
+      notNotarizer = (await ethers.getSigners())[1];
+      const padToBytes32 = (n) => n + "0".repeat(64 - n.length);
+      const paddedValue1 = "0x" + padToBytes32("123");
+      const paddedValue2 = "0x" + padToBytes32("456");
+
+      // use expect for reverted txn
+      await expect(
+        proofer.connect(notNotarizer).addProof(paddedValue1, paddedValue2)
       ).to.be.revertedWith("Not authorized notarizer");
     });
   });
