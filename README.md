@@ -2,5 +2,5 @@
 
 This repository contains our project for ETHKL 2023
 
-Contract deployed to Taiko Network [address] :0xea3f67804f4D26a7651596583a4454B80A9F9928
-https://explorer.jolnir.taiko.xyz/address/0xea3f67804f4D26a7651596583a4454B80A9F9928
+Contract deployed to Taiko Network [address] :0x305668A3932f93d9cd17839ea7C99d5246288D96
+https://explorer.jolnir.taiko.xyz/address/0x305668A3932f93d9cd17839ea7C99d5246288D96

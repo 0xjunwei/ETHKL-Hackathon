@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Notary.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.21;\n\ncontract Notary {\n    // proof object\n    struct Proof {\n        // Timestamp proof was added to the blockchain\n        uint256 timestamp;\n        // IPFS of Proof Committing into the smart contract\n        string ipfs_link;\n    }\n\n    address public immutable i_owner;\n    mapping(address => bool) public notarizers;\n    // domain URL to IPFS Proof\n    mapping(string => Proof) public proofs;\n\n    // Saving gas so only showing status change true/false\n    event NotarizerStatusChanged(address indexed _notarizer, bool status);\n    // Emit event when a new proof is added\n    event ProofAdded(\n        string indexed _documentURL,\n        string _ipfsLinkOfProof,\n        uint256 timestamp\n    );\n\n    constructor() {\n        i_owner = msg.sender;\n    }\n\n    // Typical onlyOwner function to ensure only owner can call\n    modifier onlyOwner() {\n        require(msg.sender == i_owner, \"Not contract owner\");\n        _;\n    }\n    // Only notarizers can add proofs to the contract, having an array can have multiple people within an organization to add instead of a single wallet\n    modifier onlyNotarizer() {\n        require(notarizers[msg.sender], \"Not authorized notarizer\");\n        _;\n    }\n\n    // Allows the owner to add a notarizer\n    function addNotarizer(address _notarizer) public onlyOwner {\n        notarizers[_notarizer] = true;\n        emit NotarizerStatusChanged(_notarizer, true);\n    }\n\n    // removes notarizer function\n    function removeNotarizer(address _notarizer) public onlyOwner {\n        notarizers[_notarizer] = false;\n        emit NotarizerStatusChanged(_notarizer, false);\n    }\n\n    // adds proof as a notarizer\n    // @param _documentURL URL of the domain\n    // @param _ipfsLinkOfProof IPFS Link to the proof.json file\n    function addProof(\n        string memory _documentURL,\n        string memory _ipfsLinkOfProof\n    ) public onlyNotarizer {\n        require(proofs[_documentURL].timestamp == 0, \"Proof already exists!\");\n        proofs[_documentURL] = Proof(block.timestamp, _ipfsLinkOfProof);\n        emit ProofAdded(_documentURL, _ipfsLinkOfProof, block.timestamp);\n    }\n\n    // Validates a proof if it exists\n    // @param _documentURL URL of the domain\n    // Function to retrieve the IPFS link by document URL\n    function verifyProof(\n        string memory _documentURL\n    ) public view returns (string memory) {\n        return proofs[_documentURL].ipfs_link;\n    }\n\n    // Get owner of contract\n    function getOwner() public view returns (address) {\n        return i_owner;\n    }\n\n    // check if notarizer of contract\n    function checkNotarizer(address _notary) public view returns (bool) {\n        return notarizers[_notary];\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

@@ -54,7 +54,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   );
 
   // Adding proofs
-  const proofDomain = "0xjunwei.github.io/ethkl/results.html";
+  const proofDomain = "https://0xjunwei.github.io/ethkl/results.html";
   // File too big going to try IPFS
   let ipfs_link = uploadFile();
   console.log("Adding proof to the contract...");

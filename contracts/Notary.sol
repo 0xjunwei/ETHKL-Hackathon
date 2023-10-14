@@ -2,6 +2,7 @@
 pragma solidity ^0.8.21;
 
 contract Notary {
+    // proof object
     struct Proof {
         // Timestamp proof was added to the blockchain
         uint256 timestamp;
@@ -11,7 +12,8 @@ contract Notary {
 
     address public immutable i_owner;
     mapping(address => bool) public notarizers;
-    mapping(string => Proof) public proofs; // document identifier to Proof
+    // domain URL to IPFS Proof
+    mapping(string => Proof) public proofs;
 
     // Saving gas so only showing status change true/false
     event NotarizerStatusChanged(address indexed _notarizer, bool status);
