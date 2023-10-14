@@ -1,4 +1,4 @@
-# ETHKL-Hacthon
+# ETHKL-Hackathon
 This repository contains our project for ETHKL 2023
 
 
