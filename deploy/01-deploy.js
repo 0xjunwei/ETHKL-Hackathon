@@ -4,9 +4,7 @@ const {
   developmentChains,
 } = require("../helper-hardhat-config");
 require("dotenv").config();
-const fs = require("fs");
 const { verify } = require("../utils/verify");
-const crypto = require("crypto-js");
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy, log } = deployments;
@@ -58,21 +56,6 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
       " is " +
       checkNotaryStatus
   );
-  // Adding proofs
-  const proofDomain = "www.google.com";
-  // File too big going to try IPFS
-  const ipfs_fake_link_for_demo =
-    "ipfs://QmXyZaBcDeFgHiJkLmNoPqRsTuVwXyZaBcDeFgHiJkLmNoPqRsTuVwXyZaBcDeFgHiJkLmNoPqRsTuVw";
-  console.log("Adding proof to the contract...");
-  try {
-    const tx = await contractInstance
-      .connect(notarizer_account)
-      .addProof(proofDomain, ipfs_fake_link_for_demo);
-    await tx.wait();
-    console.log("Proof added successfully.");
-  } catch (error) {
-    console.error("Error adding proof:", error);
-  }
 };
 
 module.exports.tags = ["all", "proofers"];
